@@ -1,0 +1,111 @@
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# compiled output
+dist
+tmp
+out-tsc
+#Ignore Files and Folders
+/.vs
+../.vs
+**/bin/
+**/obj/
+**/.vs/
+**/packages/
+*.dll
+# Log files
+*.log
+# Ignore coverage anywhere
+**/coverage/
+# Ignore JUnit test results
+**/junit.xml
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+pnpm-debug.log*
+build-storybook.log
+testem.log
+/typings
+.turbo/
+# System Files
+.DS_Store
+Thumbs.db
+
+.nx/cache
+.nx/workspace-data
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
+
+# Next.js
+.next
+next-env.d.ts
+out
+
+test-output
+nextjs.mdc
+
+# Storybook
+**/storybook-static/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Playwright test artifacts
+**/test-results/
+
+# Global env
+**/.env
+**/.env.local
+**/.env.development
+**/.env.development.local
+**/.env.test
+**/.env.test.local
+**/.env.production
+**/.env.production.local
+
+# Allow examples
+!/.env.example
+!**/.env.example
+
+# direnv local files (personal secrets)
+**/.envrc.local
+
+# Allow direnv example files
+!/.envrc.example
+!**/.envrc.example
+
+
+# Playwright
+**/test-results/
+**/playwright-report/
+**/blob-report/
+**/playwright/.cache/
+
+# Uploaded images
+apps/web/public/uploads/
+
+# Certificate directory for local HTTPS
+**/certificates/
