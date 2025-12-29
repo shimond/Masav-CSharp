@@ -15,22 +15,21 @@ namespace DelegatesAndMore
     {
         static void Main(string[] args)
         {
+            Search search = new Search()
+            {
+                Pattern = "*.txt",
+                Root = "C:\\"
+            };
 
-            FileSystemWatcher fs = new FileSystemWatcher("c:\\");
-            fs.IncludeSubdirectories = true;
-
-
-            Console.ForegroundColor = ConsoleColor.White;
-
-            FileDownloader downloader = new FileDownloader();
-            //downloader.progressCallback += UpdateProgress;
-            //downloader.progressCallback += UpdateProgress2 ;
-            //downloader.progressCallback = UpdateProgress2;
-
-            //downloader.progressCallback(80);
-            var result = downloader.DownloadFile("http://example.com/file");
-            //Console.WriteLine("FINISHED: " + result.Length);
+            search.FileFound += Search_FileFound;
+            search.DoSearch();
         }
+
+        private static void Search_FileFound(object sender, FiledFoundEventArgs e)
+        {
+            Console.WriteLine($"Name : {e.FileName} Parent {e.Directory} length {e.Length/1024} KB");
+        }
+
         static void UpdateProgress(int percentage)
         {
             Console.ForegroundColor = ConsoleColor.Green;
