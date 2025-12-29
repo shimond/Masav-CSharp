@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="FirstApp/FirstApp.csproj" />
-  <Project Path="Logic/Logic.csproj" />
+  <Project Path="FirstApp/FirstApp.csproj" Id="5cdf966c-c30b-4b5f-b657-befbdeeb64e6" />
+  <Project Path="Logic/Logic.csproj" Id="1993fad3-8e97-4e1f-aa64-398e70698e76" />
 </Solution>

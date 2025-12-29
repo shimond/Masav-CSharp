@@ -33,7 +33,7 @@ namespace FirstApp
                 return false;
             }
 
-            int sum = 1;
+            int sum = 0;
             for (int i = 0; i < 9; i++)
             {
                 int d = s[i] - '0';
@@ -86,6 +86,14 @@ namespace FirstApp
         // Main entry point
         static void Main(string[] args)
         {
+
+            //string tz = "206055428";
+            //string tz = "066385691";
+
+            var isValid = ValidateIsraeliTz(tz);
+            Console.WriteLine(isValid);
+
+
             // Uncomment to test input and validation
             //var input = Console.ReadLine();
             //Console.WriteLine(10 / int.Parse(input));
