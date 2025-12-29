@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36603.0 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11222.16 d18.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP_Object", "OOP_Object.csproj", "{17BF38C7-2314-48BE-ABC0-223B4C128261}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegatesAndMore", "..\DelegatesAndMore\DelegatesAndMore.csproj", "{66786E2F-D931-465F-A1E8-681321F8976A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsAppEvents", "..\WindowsFormsAppEvents\WindowsFormsAppEvents.csproj", "{31C49CD2-50F0-4D40-A162-7B0EB462855B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{17BF38C7-2314-48BE-ABC0-223B4C128261}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17BF38C7-2314-48BE-ABC0-223B4C128261}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17BF38C7-2314-48BE-ABC0-223B4C128261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66786E2F-D931-465F-A1E8-681321F8976A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66786E2F-D931-465F-A1E8-681321F8976A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66786E2F-D931-465F-A1E8-681321F8976A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66786E2F-D931-465F-A1E8-681321F8976A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C49CD2-50F0-4D40-A162-7B0EB462855B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C49CD2-50F0-4D40-A162-7B0EB462855B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C49CD2-50F0-4D40-A162-7B0EB462855B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C49CD2-50F0-4D40-A162-7B0EB462855B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

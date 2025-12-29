@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading;
 
 namespace OOP_Object
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Basic()
         {
             //Person person = new Person("John Doe");
             ////person.FullName = "John Doe";
@@ -30,18 +33,43 @@ namespace OOP_Object
             }
 
             var p1 = p as Person;
-            if(p1 != null)
+            if (p1 != null)
             {
                 p1.PrintInfo();
             }
+        }
 
 
 
+        static void Main(string[] args)
+        {
+            //List<Person> people = new List<Person>();
 
 
 
+            Person[] people = new Person[3]
+                {
+                    new Person { FullName = "Noam Cohen" },
+                    new Person { FullName = "Naama Cohen" },
+                    new Worker { FullName = "Moshe Levi", CompanyName = "Telam" },
+                };
+
+            string jsonStrng = JsonSerializer.Serialize(people);
+            var newList = JsonSerializer.Deserialize<Person[]>(jsonStrng);
+            var newList1 = JsonSerializer.Deserialize<List<Person>>(jsonStrng);
 
 
+            PersonList list = new PersonList();
+            foreach (var item in people)
+            {
+                list.Add(item);
+            }
+
+            list[0].PrintInfo();
+
+            foreach (var item in list)
+            {
+            }
 
         }
         static void Test(Person p)
