@@ -1,5 +1,12 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,34 +22,32 @@ namespace WindowsFormsAppTestAsync
         }
 
 
+
         public Task<int> DownloadUrl(string url)
         {
-            var task = Task.Factory.StartNew(() =>
+
+            var task = Task.Factory.StartNew<int>(() =>
             {
-                Thread.Sleep(5000);
+                // Simulate download
                 if (url.Contains("walla"))
                 {
+                    Thread.Sleep(5000);
                     throw new Exception("Walla walla");
                 }
-                var res = rnd.Next(10000, 1000000);
-                return res;
+                return rnd.Next(10000, 1000000); 
             });
+
             return task;
+            
         }
-        //public void DownloadUrl(string url, Action<int> onSuccess, Action<Exception> onFailed)
-        //{
-        //    new Thread(() => {
-        //        Thread.Sleep(5000);
-        //        if (url.Contains("walla"))
-        //        {
-        //            throw new Exception("Walla walla");
-        //        }
-        //        var res = rnd.Next(10000, 1000000);
 
-        //    }).Start();
-        //}
-
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            this.Text = "Start";
+            await DownloadAll();
+            this.Text = "Completed";
+        }
+        private async Task DownloadAll()
         {
             int sum = 0;
             var urls = new List<string>();
@@ -54,16 +59,9 @@ namespace WindowsFormsAppTestAsync
                 try
                 {
                     listBox1.Items.Add("Starting " + url);
-                    var result = DownloadUrl(url).ContinueWith(task =>
-                    {
-                        sum += task.Result; ;
-                        listBox1.BeginInvoke(new Action(() =>
-                        {
-                            listBox1.Items.Add("Finished " + url);
-                        }));
-                    });
-
-
+                    var result = await DownloadUrl(url);
+                    sum += result;
+                    listBox1.Items.Add("Finished " + url);
                 }
                 catch (Exception ex)
                 {

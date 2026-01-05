@@ -1,4 +1,5 @@
-﻿using MasavWebApi.Models;
+﻿using MasavWebApi.Data;
+using MasavWebApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace MasavWebApi.Contracts
 {
     public interface IProductRepository
     {
-        List<Product> GetAllProducts();
-        Product GetProductById(int id);
-        Product GetProductByName(string name);
-        Product AddProduct(Product product);
-        void UpdateProduct(Product product);
-        void DeleteProduct(int id);
+        Task<List<Product>> GetAllProducts();
+        Task<Product> GetProductById(int id);
+        Task<Product> GetProductByName(string name);
+        Task<Product> AddProduct(Product product);
+        Task UpdateProduct(Product product);
+        Task DeleteProduct(int id);
     }
 }

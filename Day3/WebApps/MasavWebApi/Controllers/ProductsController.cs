@@ -1,10 +1,12 @@
 ﻿using MasavWebApi.Contracts;
+using MasavWebApi.Data;
 using MasavWebApi.Models.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 
@@ -13,19 +15,50 @@ namespace MasavWebApi.Controllers
     [RoutePrefix("api/products")]
     public class ProductsController : ApiController
     {
+        private readonly IProductRepository _productRepository;
+
+        public ProductsController()
+        {
+            _productRepository = new Services.DbProductsRepository();
+        }
+
+        [HttpPost]
+        [Route("")]
+        public async Task<IHttpActionResult> AddNewProduct(ProductDto productDto)
+        {
+            var p = await _productRepository.AddProduct(new Product
+            {
+                Name = productDto.Name,
+                Description = productDto.Description,
+                Price = productDto.Price,
+            });
+         
+            var res = new ProductDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Description = p.Description,
+                Price = p.Price,
+            };
+            return Ok(res);
+        }
 
         [HttpGet]
         [Route("")]
         [ResponseType(typeof(List<ProductDto>))]
-        public IHttpActionResult GetAllProducts()
+        public async Task<IHttpActionResult> GetAllProducts()
         {
-            
-
-            s.AddProduct(new Models.Product { Id = 2 });
-            var products = new List<string> { "Product1", "Product2", "Product3" };
-            return Ok(products);
+            var result = await _productRepository.GetAllProducts();  
+            var resultDto = result.Select(p => new ProductDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Description = p.Description,
+                Price = p.Price,
+            }).ToList();
+        
+            return Ok(resultDto);
         }
-
 
     }
 }
