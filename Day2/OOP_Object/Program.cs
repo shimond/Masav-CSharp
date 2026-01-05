@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text.Json;
-using System.Threading;
 
 namespace OOP_Object
 {
     internal class Program
     {
-        static void Basic()
+        static void Main(string[] args)
         {
             //Person person = new Person("John Doe");
             ////person.FullName = "John Doe";
@@ -19,67 +15,19 @@ namespace OOP_Object
             ////anotherPerson.FullName = "Jane Smith";
             //anotherPerson.PrintInfo();
 
-            object p = new Person()
-            {
+            Person p = new Person() { 
                 //Id = 1,
                 FullName = "Moshe Cohen"
             };
 
+            p.
 
 
-            if (p is Person)
-            {
-                ((Person)p).PrintInfo();
-            }
-
-            var p1 = p as Person;
-            if (p1 != null)
-            {
-                p1.PrintInfo();
-            }
-        }
-
-
-
-        static void Main(string[] args)
-        {
-            //List<Person> people = new List<Person>();
-
-
-
-            Person[] people = new Person[3]
-                {
-                    new Person { FullName = "Noam Cohen" },
-                    new Person { FullName = "Naama Cohen" },
-                    new Worker { FullName = "Moshe Levi", CompanyName = "Telam" },
-                };
-
-            string jsonStrng = JsonSerializer.Serialize(people);
-            var newList = JsonSerializer.Deserialize<Person[]>(jsonStrng);
-            var newList1 = JsonSerializer.Deserialize<List<Person>>(jsonStrng);
-
-
-            PersonList list = new PersonList();
-            foreach (var item in people)
-            {
-                list.Add(item);
-            }
-
-            list[0].PrintInfo();
-
-            foreach (var item in list)
-            {
-            }
 
         }
         static void Test(Person p)
         {
             p.PrintInfo();
-        }
-
-        static void Test(object p)
-        {
-            Console.WriteLine(p.ToString());
         }
 
         static void Test(Worker p)
@@ -89,10 +37,10 @@ namespace OOP_Object
 
     }
 
-    public class Person : Object
+    public class Person
     {
         protected int ProtectedField { get; set; }
-        private string _firstName;
+        private  string _firstName;
         private string _lastName;
 
 
@@ -120,33 +68,22 @@ namespace OOP_Object
             }
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
-
         public virtual void PrintInfo()
         {
             Console.WriteLine("Full Name: " + FullName);
         }
 
-        public Person() : this("NO_FIRST_NAME", "NO_LAST_NAME")
+        public Person() : this("NO_FIRST_NAME","NO_LAST_NAME")
         {
-
+                
         }
-
 
         public Person(string fullName)
         {
             this.FullName = fullName;
         }
 
-        public Person(string firstName, string lastName) : this(firstName + " " + lastName)
+        public Person(string firstName, string lastName): this(firstName + " " + lastName)
         {
             //this._firstName = firstName;
             //this._lastName = lastName;

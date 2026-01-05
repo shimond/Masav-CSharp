@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MasavWebApi/MasavWebApi.csproj" />
+  <Project Path="WindowsFormsAppTestAsync/WindowsFormsAppTestAsync.csproj" />
+</Solution>
