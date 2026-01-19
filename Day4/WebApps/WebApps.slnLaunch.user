@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "MasavWebApi\\MasavWebApi.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "TestConsoleApp\\TestConsoleApp.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

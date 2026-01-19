@@ -1,0 +1,9 @@
+﻿GET http://www.walla.co.il
+Accept: application/json
+content-type: application/json
+
+{
+  "title": "foo",
+  "body": "bar",
+  "userId": 1
+}

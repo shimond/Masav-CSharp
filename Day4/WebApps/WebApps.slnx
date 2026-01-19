@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MasavWebApi/MasavWebApi.csproj" Id="e4f236a9-35db-4806-a245-6519d611f2c0" />
+  <Project Path="TestConsoleApp/TestConsoleApp.csproj" Id="a7d6ef97-41cc-4395-a58c-63b1b108442a" />
+</Solution>
